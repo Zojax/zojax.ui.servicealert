@@ -1,0 +1,10 @@
+Package provides configurable bar with background and text at the top of the site.
+
+After installation ServiceAlert confilet becomes available in System Settings and allows to:
+- manage alerts background color (blue, green, yellow or red);
+- enable/disalble ServiceAlerts
+- set alert message text.
+
+Once some user has closed the bar, the relative cookie is written and this user won't see this message again. But if the message text has been updated in the configlet, it will appear again.
+
+<tal:block tal:content="structure pageelement:portal.ui.servicealert" />

@@ -1,0 +1,52 @@
+/* zrt-cssregistry: */
+
+.alert {
+    border-bottom: 2px solid #b2b2b2;
+    min-height: 40px;
+}
+.message {
+    color: #4d4447;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 auto;
+    padding: 12px 0;
+    width: 940px;
+}
+.alert .message b {
+    cursor: pointer;
+    float: right;
+    margin-left: 15px;
+}
+.sa-closed {
+    display: none;
+}
+.blue,
+.configlet-widgets-color-0 {
+    background-color: #a8bfd4;
+}
+.green,
+.configlet-widgets-color-1 {
+    background-color: #e5f7db;
+}
+.yellow,
+.configlet-widgets-color-2 {
+    background-color: #fcd37b;
+}
+.red,
+.configlet-widgets-color-3 {
+    background-color: #edadad;
+}
+
+.configlet-widgets-color ul.z-listing li {
+    clear: none;
+    float: left;
+    margin-right: 15px;
+    min-width: 45px;
+    padding: 4px;
+    text-align: center;
+}
+.configlet-widgets-color ul.z-listing li label,
+.configlet-widgets-color ul.z-listing li span {
+    border: 0 none;
+    color: #4D4447;
+}

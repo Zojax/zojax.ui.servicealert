@@ -1,0 +1,37 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:i18n="http://namespaces.zope.org/i18n"
+   xmlns:zojax="http://namespaces.zope.org/zojax"
+   i18n_domain="zojax.ui.servicealert">
+
+  <!-- browser view -->
+  <include package=".browser" />
+
+  <zojax:configlet
+     name="ui.servicealert"
+     title="Service Alert"
+     schema=".interfaces.IServiceAlert"
+     description="Service Alert for site."
+     permission="zojax.Configure">
+    <require
+       permission="zope.Public"
+       interface=".interfaces.IServiceAlert" />
+  </zojax:configlet>
+
+  <subscriber handler=".configlet.configletChangeHandler" />
+
+  <zojax:pageelement
+     title="Service Alert"
+     name="portal.ui.servicealert"
+     class=".configlet.ServiceAlertPageElement"
+     manager=".interfaces.IServiceAlertHeaders" />
+
+  <utility
+     name="zojax.ui.servicealert.alert-colors"
+     component=".vocabulary.alertColorsVocabulary"
+     provides="zope.schema.interfaces.IVocabularyFactory" />
+
+  <!-- translations -->
+  <!--i18n:registerTranslations directory="locales"/-->
+
+</configure>

@@ -1,0 +1,37 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:zojax="http://namespaces.zope.org/zojax"
+   xmlns:browser="http://namespaces.zope.org/browser"
+   i18n_domain="zojax.ui.servicealert">
+
+  <!-- styles -->
+  <zojax:resourceinclude
+     name="zojax-ui-servicealert.css"
+     library="zojax"
+     type="stylesheet"
+     file="resources/styles.css" filetype="zrt" />
+
+  <!-- javascripts -->
+  <zojax:resourceinclude
+     name="zojax-ui-servicealert.js"
+     library="zojax"
+     type="javascript"
+     require="jquery-plugins"
+     file="resources/javascript.js" />
+
+  <!-- configlet -->
+  <zojax:pagelet
+     name="index.html"
+     for="..interfaces.IServiceAlert"
+     class=".wizard.ConfigletEditWizard"
+     permission="zojax.Configure" />
+
+  <zojax:pagelet
+       name="configlet"
+       type="wizard.step"
+       for="* ..interfaces.IConfigletEditWizard"
+       class=".wizard.ConfigletEditStep"
+       weight="100"
+       permission="zope.View" />
+
+</configure>
