@@ -34,4 +34,10 @@
        weight="100"
        permission="zope.View" />
 
+  <!-- resources -->
+  <zojax:resourcedirectory
+     name="servicealert"
+     directory="resources"
+     mapping=".css:zrt" />
+
 </configure>
