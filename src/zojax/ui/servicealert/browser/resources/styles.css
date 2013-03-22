@@ -5,12 +5,16 @@
     min-height: 40px;
 }
 .message {
-    color: #4d4447;
+    color: #4d4447 !important;
     font-size: 13px;
     font-weight: bold;
     margin: 0 auto;
     padding: 12px 0;
     width: 940px;
+}
+.message a {
+    color: #4d4447 !important;
+    text-decoration: underline !important;
 }
 .alert .message b {
     cursor: pointer;
