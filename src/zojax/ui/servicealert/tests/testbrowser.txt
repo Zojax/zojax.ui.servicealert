@@ -1,0 +1,74 @@
+=============
+Feedback Form
+=============
+
+    >>> import logging, sys
+    >>> from zope import component
+    >>> from zope.testbrowser.testing import Browser
+
+    >>> logger = logging.getLogger('zojax.mail')
+    >>> logger.addHandler(logging.StreamHandler(sys.stdout))
+    >>> logger.setLevel(logging.INFO)
+
+    >>> admin = Browser()
+    >>> admin.addHeader("Authorization", "Basic mgr:mgrpw")
+    >>> admin.handleErrors = False
+
+
+Configure servicealert
+    >>> admin.open("http://localhost/settings/ui/servicealert/")
+    >>> print admin.contents
+    <!DOCTYPE ...
+    ...
+        <div class="z-form-description">Service Alert for site.</div>
+        <div class="z-wizard-step">
+      <h2 class="z-form-label">Configure configlet</h2>
+      <div class="z-form-fieldset">
+        <div class="z-form-field">
+      <label for="configlet-widgets-enabled" title="Enable service alert for this site.">Enabled</label>
+      <div class="z-form-help">Enable service alert for this site.</div>
+      <div>
+    ...
+    <span class="option">
+      <label for="configlet-widgets-enabled-1">
+        <input id="configlet-widgets-enabled-1"
+    ...
+               checked="checked" type="radio" />
+        <span class="label">no</span>
+    ...
+      <label for="configlet-widgets-color" title="Select background color for Service Alert.">Background Color</label>
+    ...
+        <input type="radio" id="configlet-widgets-color-0" name="configlet.widgets.color:list" title="Blue" value="blue" />
+        <label for="configlet-widgets-color-0">
+          <span>Blue</span>
+        </label>
+    </li>
+      <li>
+        <input type="radio" id="configlet-widgets-color-1" name="configlet.widgets.color:list" title="Green" value="green" />
+        <label for="configlet-widgets-color-1">
+          <span>Green</span>
+        </label>
+    </li>
+      <li>
+        <input type="radio" id="configlet-widgets-color-2" name="configlet.widgets.color:list" title="Yellow" checked="True" value="yellow" />
+        <label for="configlet-widgets-color-2">
+          <span>Yellow</span>
+        </label>
+    </li>
+      <li>
+        <input type="radio" id="configlet-widgets-color-3" name="configlet.widgets.color:list" title="Red" value="red" />
+        <label for="configlet-widgets-color-3">
+          <span>Red</span>
+    ...
+      <label for="configlet-widgets-message" title="Please, enter service alert message.">Service Alert Message</label>
+    ...
+    </html>
+
+
+
+Let's enable service alert
+==========================
+    >>> admin.getControl(name="configlet.widgets.enabled:list").value = ['true']
+    >>> admin.getControl(name="configlet.widgets.color:list").value = ['blue']
+    >>> admin.getControl("Alert Message").value = "Test alert massage"
+    >>> admin.getControl("Save").click()
